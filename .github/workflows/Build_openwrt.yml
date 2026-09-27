@@ -54,8 +54,8 @@ jobs:
         
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/Enochs300/openwrt
-        REPO_BRANCH: v25.12.5
+        REPO_URL: https://github.com/rtyu65rm/openwrt
+        REPO_BRANCH: v22.03.7
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
@@ -67,7 +67,7 @@ jobs:
         #sed -i 's|src-git-full luci.*|src-git luci https://github.com/Enochs300/luci.git;openwrt-22.03|g' feeds.conf.default
         
         # 替换官方 25版 luci 为你自己的 luci 仓库及对应分支
-        sed -i 's|src-git luci.*|src-git luci https://github.com/Enochs300/luci.git;openwrt-25.12|g' feeds.conf.default
+        sed -i 's|src-git luci.*|src-git luci https://github.com/rtyu65rm/luci.git;openwrt-22.03|g' feeds.conf.default
         
         ./scripts/feeds update -a
         ./scripts/feeds install -a
